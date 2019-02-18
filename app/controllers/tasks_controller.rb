@@ -2,14 +2,14 @@ class TasksController < ApplicationController
     before_action :set_task, only: [:show, :edit, :update, :destroy]
     
   def index
-    @tasks = Task.all
+    @tasks = Task.all.page(params[:page])
   end
 
   def show
   end
 
   def new
-    @task = Task.new(content: 'デフォルト')
+    @task = Task.new
   end
 
   def create
